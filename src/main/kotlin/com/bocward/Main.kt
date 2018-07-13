@@ -1,6 +1,7 @@
 package com.bocward
 
 import com.bocward.commons.gameForm
+import com.bocward.plot.PlotChart
 import com.bocward.strategy.Dove
 import com.bocward.strategy.Hawk
 import com.bocward.strategy.RandomStrategy
@@ -19,10 +20,12 @@ fun main(args: Array<String>) {
         }
     }
     players.sortBy { it.score }
-    players.forEach{
-        player -> println("Player " + players.indexOf(player) + " Strategy: " + player.strategy + " score: " + player.score)
-    }
-    println("Hello, World")
+//    players.forEach{
+//        player -> println("Player " + players.indexOf(player) + " Strategy: " + player.strategy + " score: " + player.score)
+//    }
+    val demo = PlotChart("Game of Life", players)
+    demo.pack()
+    demo.setVisible(true)
 }
 
 fun initPlayers(): MutableList<Player> {
