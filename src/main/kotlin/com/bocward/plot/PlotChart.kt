@@ -4,12 +4,13 @@ import com.bocward.Player
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.ChartPanel
 import org.jfree.chart.plot.PlotOrientation
-import org.jfree.chart.ui.ApplicationFrame
 import org.jfree.data.xy.XYSeries
 import org.jfree.data.xy.XYSeriesCollection
 
 
-class PlotChart(title: String, players: MutableList<Player>) : ApplicationFrame(title) {
+class PlotChart(title: String, players: MutableList<Player>) {
+
+    var chartPanel: ChartPanel
 
     init {
         val seriesList = mutableListOf<XYSeries>()
@@ -36,9 +37,7 @@ class PlotChart(title: String, players: MutableList<Player>) : ApplicationFrame(
                 false
         )
 
-        val chartPanel = ChartPanel(chart)
+        chartPanel = ChartPanel(chart)
         chartPanel.preferredSize = java.awt.Dimension(1000, 750)
-        contentPane = chartPanel
-
     }
 }
